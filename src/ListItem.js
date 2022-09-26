@@ -18,7 +18,7 @@ export default class ToDoListItem extends React.Component {
   render() {
     let task = this.props.task
     let sx = {
-      color: task.status == 'Выполнена' ? 'green' : task.dateDiff < 0 ? 'red' : 'grey'
+      color: task.status === 'Выполнена' ? 'green' : task.dateDiff < 0 ? 'red' : 'grey'
     }
 
     return (

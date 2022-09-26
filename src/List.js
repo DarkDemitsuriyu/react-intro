@@ -7,9 +7,6 @@ import ListResp from './ListResp';
 export default class ToDoList extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      open: true
-    }
     this.handleOpenModal = this.handleOpenModal.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
@@ -28,7 +25,6 @@ export default class ToDoList extends React.Component {
       return task
     })
     let resps = this.props.resps
-    let open = this.state.open
     switch(this.props.groupped){
       case 'end_date':
         return (<ListDate data={data} openModal={this.handleOpenModal}/>)
@@ -42,7 +38,6 @@ export default class ToDoList extends React.Component {
             })}
           </List>
         )
-        break
     }
   }
 }
