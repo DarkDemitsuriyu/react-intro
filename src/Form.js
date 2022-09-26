@@ -48,12 +48,11 @@ class LoginForm extends React.Component {
     }
     if(isValid){
       let response = await fetch('/login', { method: 'POST', headers: { 'Content-Type': 'application/json;charset=utf-8' }, body: JSON.stringify({login: this.state.valueLogin, password: this.state.valuePwd}) })
-      let result = await response.json();
-      if(result.err){
-        this.showError(result.type, result.txt)
-      } else {        
-        this.props.onLoggedChange(true)
-        this.props.onTasksChange(result.tasks)
+      let {err, data} = await response.json();
+      if(err){
+        this.showError(data.type, data.txt)
+      } else {
+        this.props.onDataSet(data)
       }
     }
   }
